@@ -1,6 +1,6 @@
 // src/lib.rs
 
-//pub mod attitude;
+pub mod attitude;
 //pub mod filtering;
 //pub mod gravity;
 //pub mod imu;
