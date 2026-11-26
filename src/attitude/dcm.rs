@@ -30,9 +30,9 @@ pub fn rotate_x(angle: f64) -> Matrix3<f64> {
 /// * `Matrix3<f64>` - A $3 \times 3$ active rotation matrix belonging to $\text{SO}(3)$.
 pub fn rotate_y(angle: f64) -> Matrix3<f64> {
     Matrix3::new(
-        angle.cos(), 0.0, -angle.sin(), 
-        0.0,         1.0, 0.0, 
-        angle.sin(), 0.0, angle.cos())
+        angle.cos(),  0.0, angle.sin(), 
+        0.0,          1.0, 0.0, 
+        -angle.sin(), 0.0, angle.cos())
 }
 
 /// Produces an active rotation matrix about the z-axis.
@@ -81,9 +81,9 @@ pub fn transform_x(angle: f64) -> Matrix3<f64> {
 /// * `Matrix3<f64>` - A $3 \times 3$ active rotation matrix belonging to $\text{SO}(3)$.
 pub fn transform_y(angle: f64) -> Matrix3<f64> {
     Matrix3::new(
-        angle.cos(),  0.0, angle.sin(), 
+        angle.cos(),  0.0, -angle.sin(), 
         0.0,          1.0, 0.0, 
-        -angle.sin(), 0.0, angle.cos())
+        angle.sin(),  0.0, angle.cos())
 }
 
 /// Produces a passive rotation matrix about the z-axis.
@@ -155,7 +155,7 @@ mod tests {
         // Expected vector
         let x: f64 = angle.cos();
         let y: f64 = 0.0;
-        let z: f64 = angle.sin();
+        let z: f64 = -angle.sin();
         let expected = Vector3::new(x, y, z);
 
         // Use a small epsilon tolerance for floating-point comparisons

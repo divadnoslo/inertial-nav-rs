@@ -1,4 +1,4 @@
-use inertial_nav_rs::attitude::dcm::{rotate_x, rotate_y, rotate_z, transform_z};
+use inertial_nav_rs::attitude::dcm::{rotate_z, transform_z};
 use nalgebra::Vector3;
 use std::f64::consts::FRAC_PI_2; // 90 degrees in radians
 
